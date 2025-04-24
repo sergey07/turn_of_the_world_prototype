@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameObject PanelStartMenu;
-    [SerializeField] private GameObject PanelEndGame;
+    [SerializeField] private GameObject PanelFinishLevel;
+    [SerializeField] private GameObject PanelGameOver;
 
     private void Awake()
     {
@@ -29,11 +30,23 @@ public class GameManager : MonoBehaviour
 
     public void Init()
     {
+        Pause();
         PanelStartMenu.gameObject.SetActive(true);
     }
 
     public void StartGame()
     {
         LevelToggler.Instance.FirstLevel();
+        Resume();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0.0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
     }
 }
