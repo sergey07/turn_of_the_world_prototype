@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private GameObject PanelStartMenu;
-    [SerializeField] private GameObject PanelFinishLevel;
-    [SerializeField] private GameObject PanelGameOver;
+    [SerializeField] private GameObject _panelStartMenu;
+    [SerializeField] private GameObject _panelFinishLevel;
+    [SerializeField] private GameObject _panelGameOver;
 
     private void Awake()
     {
@@ -31,7 +29,7 @@ public class GameManager : MonoBehaviour
     public void Init()
     {
         Pause();
-        PanelStartMenu.gameObject.SetActive(true);
+        _panelStartMenu.gameObject.SetActive(true);
     }
 
     public void StartGame()
